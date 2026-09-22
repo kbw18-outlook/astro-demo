@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import Footer from "../components/Footer.astro";
+---
+
+<html style="text-align: center; padding: 4rem 1rem;" lang="zh-cn">
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>404</h1>
+        <h2>糟糕，页面走丢了</h2>
+        <p>你访问的地址不存在或已被移除。</p>
+        <img src="/img/img_404.png" width="500" />
+        <p></p>
+        <a href="/" style="display: inline-block; margin-top: 1rem;">
+            返回首页
+        </a>
+        <Footer />
+    </body>
+</html>

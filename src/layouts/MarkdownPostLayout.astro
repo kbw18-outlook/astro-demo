@@ -1,0 +1,32 @@
+---
+const { frontmatter } = Astro.props;
+const now = new Date();
+const pad = (n: number) => String(n).padStart(2, "0");
+const initial =
+    `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ` +
+    `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+---
+
+<meta charset="utf-8" />
+<h1>{frontmatter.title}</h1>
+<p>作者：{frontmatter.author}</p>
+<p class="current-time">当前时间为:{initial}</p>
+
+<p>发表于：{frontmatter.pubDate.toString().slice(0, 10)}</p>
+<slot />
+<p>接下来我要干什么:</p>
+<p>{frontmatter.next}</p>
+<footer>关注我以获取更多信息。</footer>
+<script>
+    const cur_time = document.querySelector(".current-time");
+    function updateTime() {
+        const now = new Date();
+        const pad = (n: number) => (n < 10 ? "0" + n : "" + n);
+        const timeStr =
+            `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ` +
+            `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        cur_time!.textContent = "当前时间为:" + timeStr;
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
