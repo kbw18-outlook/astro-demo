@@ -4,35 +4,21 @@
         background-color: #ff9776;
     }
     .nav-links {
-        width: 100%;
-        margin: 0;
-        display: none;
+        display: block;
+        position: static;
+        width: auto;
+        background: none;
     }
 
     .nav-links a {
-        display: block;
+        display: inline-block;
         text-align: center;
-        padding: 10px 0;
-
+        padding: 15px 20px;
         text-decoration: none;
         font-size: 1.2rem;
         font-weight: bold;
         text-transform: uppercase;
         color: #87ceeb;
-    }
-
-    @media screen and (min-width: 636px) {
-        .nav-links {
-            display: block;
-            position: static;
-            width: auto;
-            background: none;
-        }
-
-        .nav-links a {
-            display: inline-block;
-            padding: 15px 20px;
-        }
     }
 </style>
 <div id="main-menu" class="nav-links">

@@ -25,4 +25,4 @@ pnpm-debug.log*
 
 
 # test pages
-./src/pages/test/*
+src/pages/test
