@@ -8,7 +8,6 @@ image:
   alt: "The Astro logo on a dark background with rainbow rays."
 pubDate: 2026-09-22
 tags: ["astro", "learning in public", "setbacks", "community"]
-next: 接下来学习分文件编写
 ---
 
 尽管这并不总是一帆风顺，但我很享受使用 Astro 进行搭建。并且，[Discord 社区](https://astro.build/chat)真的很友好而且乐于助人！

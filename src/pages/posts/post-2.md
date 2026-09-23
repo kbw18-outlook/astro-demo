@@ -8,7 +8,6 @@ image:
   alt: "The Astro logo on a dark background with a purple gradient arc."
 pubDate: 2026-09-21
 tags: ["astro", "blogging", "learning in public", "successes"]
-next: 接下来学习重构
 ---
 
 在学习 Astro 大约一周后，我决定尝试些新的东西。我编写并导入了一个小组件！
