@@ -1,0 +1,11 @@
+- my-astro-project/
+  - public/ # [核心约定] 原样直出，不经构建流水线（如 favicon, _redirects）
+  - src/
+    - pages/ # [核心约定] 基于文件的路由系统（支持下划线 _ 私有化屏蔽）
+    - content/ # [核心约定] 内容集合，config.ts 负责类型模式定义
+    - assets/ # [核心约定] 经过 Vite 处理与图片优化的静态资产
+    - middleware.ts # [核心约定] 全局请求拦截中间件
+    - actions/index.ts # [核心约定] 类型安全的 Server Actions 动作定义
+    - layouts/ # [社区规范] 页面骨架与模板
+    - components/ # [社区规范] 可复用 UI 组件
+    - styles/ # [社区规范] 全局样式入口

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- 浅蓝圆角底座 -->
+  <rect width="32" height="32" rx="7" fill="#38bdf8" />
+
+  <!-- 整体图形组（向右上方倾斜 10 度） -->
+  <g transform="skewX(-10)" transform-origin="16 16">
+    <!-- 字母 I -->
+    <text x="6" y="21" fill="#ffffff" font-size="11" font-weight="900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" text-anchor="middle">I</text>
+
+    <!-- 红色波浪线 ~ -->
+    <path d="M 8.5 17.5 C 9.5 16, 11 16, 12 17.5 C 13 19, 14.5 19, 15.5 17.5" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round" />
+
+    <!-- 字母 W -->
+    <text x="17.2" y="21" fill="#ffffff" font-size="10" font-weight="900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" text-anchor="middle">W</text>
+
+    <!-- 绿色波浪线 ~ -->
+    <path d="M 20 17.5 C 21 16, 22.5 16, 23.5 17.5 C 24.5 19, 26 19, 27 17.5" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" />
+
+    <!-- 字母 P -->
+    <text x="28.5" y="21" fill="#ffffff" font-size="11" font-weight="900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" text-anchor="middle">P</text>
+  </g>
+</svg>

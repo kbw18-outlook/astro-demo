@@ -2,7 +2,6 @@
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 import "../styles/global.css";
-import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 const pageTitle = "关于我";
 const identity = {
@@ -28,6 +27,9 @@ const textCase = "uppercase";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+    </head>
+
+    <body>
         <style define:vars={{ skillColor, fontWeight, textCase }}>
             .skill {
                 color: var(--skillColor);
@@ -35,9 +37,6 @@ const textCase = "uppercase";
                 text-transform: var(--textCase);
             }
         </style>
-    </head>
-
-    <body>
         <Header />
 
         <h1>{pageTitle}</h1>
@@ -81,7 +80,5 @@ const textCase = "uppercase";
         ) : (
             <p>我的目标不是 3 天。</p>
         )}
-
-        <Footer />
     </body>
 </html>

@@ -1,9 +1,6 @@
 ---
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-
+// 参数 pageTitle 一个字符串，代表需要
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 const { pageTitle = "Astro" } = Astro.props;
 ---
@@ -11,10 +8,10 @@ const { pageTitle = "Astro" } = Astro.props;
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
+        <title>kbw's blog</title>
     </head>
 
     <body>
@@ -22,9 +19,5 @@ const { pageTitle = "Astro" } = Astro.props;
         <h1>{pageTitle}</h1>
         <p>在这里，我将分享我的 Astro 学习之旅。</p>
         <slot />
-        <Footer />
     </body>
-    <script>
-        import "../scripts/menu.js";
-    </script>
 </html>

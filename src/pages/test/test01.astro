@@ -1,0 +1,44 @@
+---
+import MainStyle from "../../layouts/SplitLayout.astro";
+import Header from "../../components/Header.astro";
+---
+
+<style>
+    /* 子元素 .Title：在左侧 2fr 空间内自己居中 */
+    .title {
+        width: fit-content; /* 宽度随内容撑开 */
+        margin-inline: auto; /* 水平居中：等同于 margin-left: auto; margin-right: auto; */
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.05); /* 示例背景 */
+        border-radius: 6px;
+    }
+    .content {
+        margin-left: 15%;
+        margin-right: 8%; /* 离右边白线也留一点呼吸距离 */
+    }
+    .header-style {
+        /* 核心 1：宽度收缩为自身内容宽（或者指定一个最大宽度如 max-width: 500px） */
+        width: fit-content;
+
+        /* 核心 2：左右外边距自动平分，实现自身在父容器中水平居中 */
+        margin-inline: auto;
+
+        /* 下边距：跟下面的段落拉开距离 */
+        margin-bottom: 2rem;
+    }
+</style>
+<MainStyle title_text="mainTest">
+    <Fragment slot="left">
+        <p class="title">Title test</p>
+        <p class="content">content test</p>
+    </Fragment>
+    <Fragment slot="main">
+        <div class="header-style">
+            <Header class="header-style" />
+        </div>
+        <p>这是一个测试标签</p>
+    </Fragment>
+    <Fragment slot="right">
+        <p>这是一个测试标签</p>
+    </Fragment>
+</MainStyle>

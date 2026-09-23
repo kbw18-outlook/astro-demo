@@ -1,4 +1,9 @@
 ---
+const posts = Object.values(
+    import.meta.glob("../pages/posts/*.md", { eager: true }),
+);
+import MainStyle from "./SplitLayout.astro";
+import Header from "../components/Header.astro";
 const { frontmatter } = Astro.props;
 const now = new Date();
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -8,15 +13,70 @@ const initial =
 ---
 
 <meta charset="utf-8" />
-<h1>{frontmatter.title}</h1>
-<p>作者：{frontmatter.author}</p>
-<p class="current-time">当前时间为:{initial}</p>
 
-<p>发表于：{frontmatter.pubDate.toString().slice(0, 10)}</p>
-<slot />
+<MainStyle title_text="mainTest">
+    <Fragment slot="left">
+        <p class="title">文章列表</p>
+        <ul class="content">
+            {posts.map((post: any) => (
+                <li>
+                    <!-- 自动获取文件的链接和 frontmatter 里的 title -->
+                    <a href={post.url} class="post-link">
+                        {post.frontmatter.title}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </Fragment>
+    <Fragment slot="main">
+        <div class="header-style">
+            <Header class="header-style" />
+        </div>
+        <slot />
+    </Fragment>
+    <Fragment slot="right">
+        <div class="pin-right-content-buttom">
+            <h1>{frontmatter.title}</h1>
+            <p>作者：{frontmatter.author}</p>
+            <p class="current-time">当前时间为:{initial}</p>
+            <p>发表于：{frontmatter.pubDate.toString().slice(0, 10)}</p>
+        </div>
+    </Fragment>
+</MainStyle>
+
 <p>接下来我要干什么:</p>
 <p>{frontmatter.next}</p>
 <footer>关注我以获取更多信息。</footer>
+
+<style>
+    /* 子元素 .Title：在左侧 2fr 空间内自己居中 */
+
+    .title {
+        width: fit-content; /* 宽度随内容撑开 */
+        margin-inline: auto; /* 水平居中：等同于 margin-left: auto; margin-right: auto; */
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.05); /* 示例背景 */
+        border-radius: 6px;
+    }
+    .content {
+    }
+    .pin-right-content-buttom {
+        height: 100%; /* 撑满侧边栏高度 */
+        display: flex;
+        flex-direction: column; /* 竖直排列 */
+        justify-content: flex-end; /* 核心：直接命令里面所有内容靠底部对齐！ */
+    }
+    .header-style {
+        /* 核心 1：宽度收缩为自身内容宽（或者指定一个最大宽度如 max-width: 500px） */
+        width: fit-content;
+
+        /* 核心 2：左右外边距自动平分，实现自身在父容器中水平居中 */
+        margin-inline: auto;
+
+        /* 下边距：跟下面的段落拉开距离 */
+        margin-bottom: 2rem;
+    }
+</style>
 <script>
     const cur_time = document.querySelector(".current-time");
     function updateTime() {
